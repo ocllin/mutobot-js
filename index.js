@@ -12,8 +12,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-	client.user.setPresence({ game: { name: 'with discord.js' , type: 'WATCHING' }, status: 'idle' })
-    .then(console.log)
+	client.user.setPresence({ game: { name: 'over Tama in js' , type: 'WATCHING' }, status: 'idle' })
     .catch(console.error);
 
 	console.log(`${client.user.username} is online!`)
