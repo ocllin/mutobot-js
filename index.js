@@ -22,7 +22,7 @@ client.once('ready', () => {
 
 client.on('voiceStateUpdate', (oldMember, newMember) =>{
 	//Change guild ID to corresponding server that needs it
-	if (newMember.guild !== '672937907824230410'){return;}
+	if (newMember.guild !== '404103946328866818'){return;}
 	try {
 		var newVoice = newMember.voiceChannel;
 		var oldVoice = oldMember.voiceChannel;
@@ -31,13 +31,13 @@ client.on('voiceStateUpdate', (oldMember, newMember) =>{
 		if(newVoice !== undefined){
 			//Assign role to user
 			if (newMember.roles.find(r=> r.name === "voice") != true){
-				newMember.addRole('672970205068132352');
+				newMember.addRole('474707295117508629');
 			}
 		}
 
 		if(newVoice === undefined){
 			//If user is leaving voice channel then remove the voice role
-			newMember.removeRole('672970205068132352')
+			newMember.removeRole('474707295117508629')
 		}
 	} catch (error) {
 		console.error(error);
