@@ -12,9 +12,12 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-	client.user.setStatus('available', 'Now in JS!');
 	console.log(`${client.user.username} is online!`)
 });
+
+client.user.setPresence({ game: { name: 'now in js!' }, status: 'online' })
+  .then(console.log)
+  .catch(console.error);
 
 client.on('voiceStateUpdate', (oldMember, newMember) =>{
 	//Change guild ID to corresponding server that needs it
