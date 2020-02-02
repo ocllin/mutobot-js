@@ -23,7 +23,7 @@ client.once('ready', () => {
 client.on('voiceStateUpdate', (oldMember, newMember) =>{
 	//Change guild ID to corresponding server that needs it
 	if (newMember.guild.id !== '404103946328866818'){
-		console.log("User is switching channel in guild: " + message.guild.name);
+		console.log("User is switching channel in guild: " + newMember.guild.name);
 		return;}
 	try {
 		var newVoice = newMember.voiceChannel;
