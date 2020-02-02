@@ -12,6 +12,7 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
+	client.user.setStatus('available', 'Now in JS!');
 	console.log(`${client.user.username} is online!`)
 });
 
