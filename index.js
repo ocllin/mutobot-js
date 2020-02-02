@@ -22,7 +22,9 @@ client.once('ready', () => {
 
 client.on('voiceStateUpdate', (oldMember, newMember) =>{
 	//Change guild ID to corresponding server that needs it
-	if (newMember.guild !== '404103946328866818'){return;}
+	if (newMember.guild.id !== '404103946328866818'){
+		console.log("User is switching channel in guild: " + message.guild.name);
+		return;}
 	try {
 		var newVoice = newMember.voiceChannel;
 		var oldVoice = oldMember.voiceChannel;
@@ -30,7 +32,7 @@ client.on('voiceStateUpdate', (oldMember, newMember) =>{
 		//if in voice channel
 		if(newVoice !== undefined){
 			//Assign role to user
-			if (newMember.roles.find(r=> r.name === "voice") != true){
+			if (newMember.roles.find(r=> r.name === "voice") !== true){
 				newMember.addRole('474707295117508629');
 			}
 		}
