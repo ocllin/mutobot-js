@@ -33,6 +33,7 @@ var spots = {10: "Green Mushroom: Henesys: Spore Hill",
 136: "Bain[*55] - El Nath: The Cave of Trials III",
 140: "Yellow King Goblin - Korean Folk Town: Goblin House",
 141: "Dark Wyvern[*65] - Minar Forest: Black Wyvern's Nest",
+154: "Killer Cosmetics - Kerning Tower: 5F Cosmetics Shops<1>",
 155: "Flora - Stone Colossus: Colossus East Road 2\n[*80]Enraged Espresso Machine - Kerning Tower: 2F Cafe <4>",
 160: "Normal Horntail - Leafre: Cave of Life",
 161: "Deadly Dressing Table[*80] - Kerning Tower: 5F Cosmetics Shops <4>",
@@ -41,6 +42,7 @@ var spots = {10: "Green Mushroom: Henesys: Spore Hill",
 170: "Official Knight A, B, C - Knight Stronghold: Knight District 1-2",
 173: "Gray Commuter Saucer - Omega Sector: Corridor 204",
 175: "Gray Luxury Saucer - Omega Sector: Corridor 202",
+176: "Foul Ooze Waste - Savage Terminal: Seedy Scrapyard 2",
 178: "Gray Commuter Saucer[*140] - Omega Sector: Corridor H01",
 184: "Advanced Knight A-E - Knight Stronghold: Hall of Honor",
 190: "Swollen Stump - Twilight Perion: Desolate Hills\nSwollen Stump - Twilight Perion: Deserted Southern Ridge",
@@ -76,12 +78,18 @@ module.exports = {
         if (args[0] == '' || isNaN(args[0])) {message.channel.send("Please include a level!"); return;}
 
         if (args[0] != ''){
+            var results = "";
             let level = parseInt(args[0], 10);
             for(var i = level-5; i <= level+5; i=i+1){
                 if(spots[i] === undefined){i+=1; continue;}
+                results += spots[i];
                 trainEmbed.addField("Level " +  i.toString(), spots[i], false);
             }
         }
-		message.channel.send(trainEmbed);
+        if(results){
+		  message.channel.send(trainEmbed);
+        }else{
+            message.channel.send("I don't have any results for that level :(");
+        }
 	},
 };
