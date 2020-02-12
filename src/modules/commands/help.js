@@ -1,7 +1,7 @@
 const help =
     `
 \`\`\`css
-[Muto Bot - v0.3]
+[Muto Bot - v0.31]
 
 @Parameters (required), [optional];
 
