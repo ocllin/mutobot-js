@@ -29,11 +29,11 @@ module.exports = {
 		//Prepare discord statement, formatting sucks :(
 		var flag =
     `
-\`\`\`css
-[Next Race]
+\`\`\`cs
+# Next Race
 ${closestRace}
 ===============
-[Flag Race]
+# Flag Race
 ${racesStr}
 \`\`\`
 `;
