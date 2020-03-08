@@ -24,6 +24,11 @@ module.exports = {
 			}
 		}
 
+		if(string === ""){
+			message.channel.send("There are no more flag races today!");
+			return;
+		}
+
 		var racesStr = string.slice(0, -1); //Slice last newline off of output
 		var closestRace = racesStr.split('\n')[0];
 		//Prepare discord statement, formatting sucks :(
