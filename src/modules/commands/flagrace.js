@@ -35,8 +35,6 @@ ${closestRace}
 ===============
 [Flag Race]
 ${racesStr}
-
-
 \`\`\`
 `;
 		message.channel.send(flag);
