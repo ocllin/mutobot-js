@@ -1,23 +1,47 @@
-const flag =
-    `
-\`\`\`css
-[Flag Race]
-Flag race is a guild event that occurs at multiple times during the day
+var moment = require('moment');
 
-UTC: 12PM, 7PM, 9PM, 10PM, 11PM
-EDT: 8AM, 3PM, 5PM, 6PM, 7PM
+//Collection of all timestamps for flag race events
+var races = [moment("08:00:00 am", "HH:mm:ss a"), moment("03:00:00 pm", "HH:mm:ss a"), moment("05:00:00 pm", "HH:mm:ss a"),
+moment("06:00:00 pm", "HH:mm:ss a"), moment("07:00:00 pm", "HH:mm:ss a")];
 
-The purpose of flag race is to collect points for your guild and based on the weekly rankings, your guild will receive skill points for Noblesse Skills which are buffs anyone in the guild can use for more damage, boss damage and IED. The higher you rank the more points Tama gets! Please try to go even if it's for the participation points! Use the G and H skills to help you or a guildie finish a race for maximum points.
-
-More details here:
-http://reconcilegms.weebly.com/guild-flag-race.html
-\`\`\`
-`;
 module.exports = {
 	name: 'flagrace',
 	description: 'Provides information flag race',
     aliases: ['flag', 'flagrace'],
 	execute(message) {
+		//Initialize times for flagraces every day
+		var d = new Date();
+		var timeNow = moment();
+		var string = "";
+		for(i = 0; i < races.length; i++){
+			if (timeNow.isSameOrAfter(races[i])){
+				var duration = moment.duration(races[i].diff(timeNow));
+				// duration in hours
+				var hours = parseInt(duration.asHours()) + 23;
+				// duration in minutes
+				var minutes = parseInt(duration.asMinutes())%60 + 60;
+				var seconds = parseInt(duration.asSeconds())% 60 + 60;
+				string += "Race " + (i+1) + " in:\t" + hours + ' hrs '+ minutes+' mins and ' + seconds+' seconds\n';
+			}else{
+				var duration = moment.duration(races[i].diff(timeNow));
+				// duration in hours
+				var hours = parseInt(duration.asHours());
+
+				// duration in minutes
+				var minutes = parseInt(duration.asMinutes())%60;
+				var seconds = parseInt(duration.asSeconds())% 60;
+				string += "Race " + (i+1) + " in:\t" + hours + ' hrs '+ minutes+' mins and ' + seconds+' seconds\n';
+			}
+		}
+		var newStr = string.slice(0, -1); //Slice last newline off of output
+		//Prepare discord statement, formatting sucks :(
+		var flag =
+    `
+\`\`\`css
+[Flag Race]
+${newStr}
+\`\`\`
+`;
 		message.channel.send(flag);
 	},
 };
