@@ -1,8 +1,8 @@
 var moment = require('moment');
 
 //Collection of all timestamps for flag race events
-var races = [moment("08:00:00 am", "HH:mm:ss a"), moment("03:00:00 pm", "HH:mm:ss a"), moment("05:00:00 pm", "HH:mm:ss a"),
-moment("06:00:00 pm", "HH:mm:ss a"), moment("07:00:00 pm", "HH:mm:ss a")];
+var races = [moment("12:00:00 pm", "HH:mm:ss a"), moment("07:00:00 pm", "HH:mm:ss a"), moment("09:00:00 pm", "HH:mm:ss a"),
+moment("10:00:00 pm", "HH:mm:ss a"), moment("11:00:00 pm", "HH:mm:ss a")];
 
 module.exports = {
 	name: 'flagrace',
