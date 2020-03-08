@@ -19,8 +19,8 @@ module.exports = {
 				// duration in hours
 				var hours = parseInt(duration.asHours()) + 23;
 				// duration in minutes
-				var minutes = parseInt(duration.asMinutes())%60 + 60;
-				var seconds = parseInt(duration.asSeconds())% 60 + 60;
+				var minutes = parseInt(duration.asMinutes())%60 + 59;
+				var seconds = parseInt(duration.asSeconds())% 60 + 59;
 				string += "Race " + (i+1) + " in:\t" + hours + ' hrs '+ minutes+' mins and ' + seconds+' seconds\n';
 			}else{
 				var duration = moment.duration(races[i].diff(timeNow));
