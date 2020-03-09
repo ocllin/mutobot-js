@@ -18,7 +18,7 @@ module.exports = {
 				var duration = moment.duration(races[i].diff(timeNow));
 				var hours = parseInt(duration.asHours());
 				var minutes = parseInt(duration.asMinutes())%60;
-				var seconds = parseInt(duration.asSeconds())% 60;
+				var seconds = parseInt(duration.asSeconds())%60;
 				//Prepare string for discord output
 				string += "Race " + (i+1) + " in:\t" + hours + ' hrs '+ minutes+' mins and ' + seconds+' seconds\n';
 			}
