@@ -10,6 +10,7 @@ General:
     .cap                   Shows capping information
     .train  (level)        Displays good areas to level
     .stamp (string)        Converts text to Discord emojis
+    .flagrace              Shows future flag race events
 \`\`\`
 `;
 module.exports = {
@@ -17,7 +18,7 @@ module.exports = {
 	description: 'Provides information about the bot',
     aliases: ['h', 'help'],
 	execute(message) {
-
+        message.channel.send("I've sent you a DM, @" + message.author.id);
 		message.author.send(help);
 	},
 };
