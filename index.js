@@ -22,7 +22,7 @@ client.once('ready', () => {
 
 client.on('voiceStateUpdate', (oldMember, newMember) =>{
 	//Change guild ID to corresponding server that needs it
-	if (newMember.guild.id !== '404103946328866818'){
+	if (newMember.guild.id !== '404103946328866818' && newMember.guild.id !== '682403382257909815'){
 		console.log("User is switching channel in guild: " + newMember.guild.name);
 		return;}
 	try {
@@ -33,13 +33,19 @@ client.on('voiceStateUpdate', (oldMember, newMember) =>{
 		if(newVoice !== undefined){
 			//Assign role to user
 			if (newMember.roles.find(r=> r.name === "voice") !== true){
-				newMember.addRole('474707295117508629');
+				if (newMember.guild.id == '404103946328866818')
+					newMember.addRole('474707295117508629');
+				if (newMember.guild.id == "682403382257909815")
+					newMember.addRole('692036457010823218');
 			}
 		}
 
 		if(newVoice === undefined){
 			//If user is leaving voice channel then remove the voice role
-			newMember.removeRole('474707295117508629')
+			if (newMember.guild.id == '404103946328866818')
+					newMember.addRole('474707295117508629');
+				if (newMember.guild.id == "682403382257909815")
+					newMember.addRole('692036457010823218');
 		}
 	} catch (error) {
 		console.error(error);
