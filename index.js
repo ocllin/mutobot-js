@@ -32,7 +32,7 @@ client.on('voiceStateUpdate', (oldMember, newMember) =>{
 		//if in voice channel
 		if(newVoice !== undefined){
 			//Assign role to user
-			if (newMember.roles.find(r=> r.name === "voice" || r=> r.name === "Voice") !== true){
+			if (newMember.roles.find(r=> (r.name === "voice" || r.name === "Voice")) !== true){
 				if (newMember.guild.id == '404103946328866818')
 					newMember.addRole('474707295117508629');
 				if (newMember.guild.id == "682403382257909815")
