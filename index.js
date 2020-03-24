@@ -45,7 +45,6 @@ client.on('voiceStateUpdate', (oldMember, newMember) =>{
 			if (newMember.guild.id == '404103946328866818'){newMember.removeRole('474707295117508629')}
 			if (newMember.guild.id == "682403382257909815"){newMember.removeRole('686371566904147994')}
 		}
-			}
 	} catch (error) {
 		console.error(error);
 	}
