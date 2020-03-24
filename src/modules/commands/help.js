@@ -18,7 +18,7 @@ module.exports = {
 	description: 'Provides information about the bot',
     aliases: ['h', 'help'],
 	execute(message) {
-        message.channel.send("I've sent you a DM, @" + message.author.id);
+        message.channel.send("I've sent you a DM, <@" + message.author.id  + ">");
 		message.author.send(help);
 	},
 };
