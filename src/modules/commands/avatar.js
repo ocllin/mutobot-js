@@ -25,7 +25,7 @@ module.exports = {
 				imgUrl = obj[0]['attribs']['src'];
 
 				const embed = new Discord.RichEmbed()
-				.setTitle(name + "'s" avatar)
+				.setTitle(name + "'s avatar")
 				.setColor(0x00AE86)
 				.setImage(imgUrl);
 
