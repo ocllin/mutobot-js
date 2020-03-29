@@ -9,7 +9,6 @@ module.exports = {
 		var name = args[0];
 		const siteUrl = 'http://maplestory.nexon.net/rankings/overall-ranking/legendary?pageIndex=1&character_name=' + name + '&search=true&region=&rebootIndex=1#ranking';
 		var imgUrl = ""
-		console.log(name);
 
 		axios.get(siteUrl).then((response)=>{
 			let $ = cheerio.load(response.data);
